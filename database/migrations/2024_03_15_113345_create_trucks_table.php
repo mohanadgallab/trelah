@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->enum('lang', ['ar','en'])->default('ar');
             $table->string('name');
-            $stable->string('slug')->nullable();
-            $table->string('truck_image')->nullable();
-            $table->string('long');
-            $table->string('width');
-            $table->string('weight');
+            $table->string('slug')->nullable();
+            $table->string('image_path')->nullable();
+            $table->string('long')->nullable();
+            $table->string('width')->nullable();
+            $table->string('weight')->nullable();
             $table->string('area_1')->nullable();
             $table->string('area_2')->nullable();
             $table->string('area_3')->nullable();
