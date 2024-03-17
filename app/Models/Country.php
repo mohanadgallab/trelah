@@ -9,5 +9,9 @@ class Country extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'content', 'image_path'];
+
+    public function services(){
+        return $this->hasMany(Service::class);
+    }
 }

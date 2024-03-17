@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
+use App\Models\Truck;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function arHome(){
+        $trucks = Truck::all() ;
+        $countries = Country::all();
+        return view('website', compact('trucks','countries'));
     }
 }

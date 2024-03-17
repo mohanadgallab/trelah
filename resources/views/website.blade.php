@@ -1,5 +1,13 @@
 @extends('layouts.website.ar.master')
+@section('meta-tag')
+<title>Trelah</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
 
+<!-- Favicons -->
+<link href="logo.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+@endsection
 @section('body')
 <!-- ======= Header ======= -->
   

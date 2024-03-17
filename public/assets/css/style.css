@@ -481,7 +481,23 @@ h6 {
 #hero .icon-box:hover {
   border-color: #ffc451;
 }
-
+#hero .swiper-slide {
+  text-align: center;
+  font-size: 18px;  
+  background: #c60f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero .swiper {
+  width: 100%;
+  height: 100%;
+}
+#hero .swiper-slide img {
+  display: block;
+  
+  object-fit: cover;
+}
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;

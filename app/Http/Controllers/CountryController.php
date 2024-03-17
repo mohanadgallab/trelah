@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CountryRequest;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CountryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,9 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::all();
+
+        return view('countries.index', compact('countries'));
     }
 
     /**
@@ -24,7 +32,9 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        $country = new Country ;
+
+        return view('countries.create', compact('country'));
     }
 
     /**
@@ -33,9 +43,19 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CountryRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        if ($request->hasFile('image_path')) {
+            $filePath = Storage::disk('public')->put('image/countries/images', $request->file('image_path'), 'public');
+            $data['image_path'] = $filePath ;
+        }
+
+        $country = Country::create($data);
+        if ($country) {
+            return redirect()->route('countries.index')->with('status', 'Country Added Successfully');
+        }
     }
 
     /**
@@ -46,7 +66,7 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        return view('countries.show', compact('country'));
     }
 
     /**
@@ -57,7 +77,7 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        //
+        return view('countries.edit', compact('country'));
     }
 
     /**
@@ -67,9 +87,20 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(CountryRequest $request, Country $country)
     {
-        //
+        $data = $request->validated() ;
+
+        if ($request->hasFile('image_path')) {
+            Storage::disk('public')->delete($country->image_path);
+            $filePath = Storage::disk('public')->put('/image/countries/images', $request->file('image_path'), 'public');
+            $data['image_path'] = $filePath ;
+        }
+        if ($country->update($data)) {
+            return redirect()->route('countries.index')->with('status', 'Country Updated Successfully');
+        }
+
+        return abort(500);
     }
 
     /**
@@ -80,6 +111,9 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        //
+        Storage::disk('public')->delete($country->image_path);
+        $country->delete();
+
+        return redirect()->route('countries.index')->with('status', 'Country Deleted Successfully');
     }
 }

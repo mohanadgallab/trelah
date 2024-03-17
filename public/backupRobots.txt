@@ -1,0 +1,5 @@
+User-agent: Googlebot
+
+Disallow:
+
+Host: https://www.trelah.com
