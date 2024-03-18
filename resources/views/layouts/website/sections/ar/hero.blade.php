@@ -9,15 +9,19 @@
       </div>
 
       <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-        @foreach ($trucks as $truck)
+        @include('layouts.website.sections.ar.hero-slide')
+      </div>
+
+    </div>
+  </section>
+
+
+
+  {{-- @foreach ($trucks as $truck)
         <div class="col-xl-2 col-md-4">
           <div class="icon-box">
             <img src="{{ Storage::url($truck->image_path)}}" class="img-fluid" alt="{{ $truck->area_1}}">
             <h3><a href="">{{ $truck->name}}</a></h3>
           </div>
         </div>
-        @endforeach
-      </div>
-
-    </div>
-  </section>
+        @endforeach --}}

@@ -23,6 +23,35 @@
     @enderror
 
 </div>
+
+{{-- Type --}}
+<div class="form-group mb-2">
+
+    <label for="type">type</label>
+
+    <select name="type" class="form-control @error('type') is-invalid @enderror">
+
+        <option value="">--Select--</option>
+
+        <option value="land" {{ 'land' == old('type', $service->type) ? 'selected' : '' }}>Land</option>
+        <option value="sea" {{ 'sea' == old('type', $service->type) ? 'selected' : '' }}>Sea</option>
+
+        <option value="air" {{ 'air' == old('type', $service->type) ? 'selected' : '' }}>Air</option>
+
+
+    </select>
+
+    @error('type')
+
+    <span class="invalid-feedback" role="alert">
+
+        <strong>{{ $message }} </strong>
+
+    </span>
+
+    @enderror
+
+</div>
 <div class="form-group mb-2">
     <label for="lang">Country</label>
     <select name="country_id" class="form-control @error('country_id') is-invalid @enderror">

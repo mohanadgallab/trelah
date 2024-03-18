@@ -24,9 +24,10 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ['required', 'min:5'],
+            "name" => ['required', 'min:5', 'unique:services'],
             "desc" => ['required'],
             "image_path" => ['required', 'image'],
+            "type" => ['required'],
             "country_id" => ['required']
         ];
     }

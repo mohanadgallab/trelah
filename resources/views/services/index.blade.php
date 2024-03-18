@@ -18,6 +18,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Description</th>
+                                <th scope="col">Type</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -28,6 +29,7 @@
                                     <th>1</th>
                                     <td>{{ $service->name }}</td>
                                     <td style="width:100px">{{ substr($service->desc,0,100) }}</td>
+                                    <td style="width:100px">{{ $service->type }}</td>
                                     <td style="width:150px"><img src="{{ Storage::url($service->image_path) }}"
                                             class="img-fluid img-thumbnail"></td>
                                     <td style="" class="">
