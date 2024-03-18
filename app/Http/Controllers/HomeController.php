@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Service;
 use App\Models\Truck;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,7 @@ class HomeController extends Controller
     public function arHome(){
         $trucks = Truck::all() ;
         $countries = Country::all();
-        return view('website', compact('trucks','countries'));
+        $services = Service::all() ;
+        return view('website', compact('trucks','countries','services'));
     }
 }
