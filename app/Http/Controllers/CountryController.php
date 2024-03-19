@@ -48,7 +48,7 @@ class CountryController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image_path')) {
-            $filePath = Storage::disk('public')->put('image/countries/images', $request->file('image_path'), 'public');
+            $filePath = Storage::disk('countries')->put('/', $request->file('image_path'), 'public');
             $data['image_path'] = $filePath ;
         }
 

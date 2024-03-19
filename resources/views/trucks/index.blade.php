@@ -41,7 +41,7 @@ h4 {
                                         <tr>
                                             <th>1</th>
                                             <td>{{ $truck->name }}</td>
-                                            <td style="width:150px"><img src="{{ Storage::url($truck->image_path) }}"
+                                            <td style="width:150px"><img src="{{ asset('/trucks/images/'.$truck->image_path) }}"
                                                     class="img-fluid img-thumbnail"></td>
                                             <td style="" class="">
                                                 <a href="{{ route('trucks.show', [$truck]) }}"

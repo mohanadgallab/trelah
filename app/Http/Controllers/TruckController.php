@@ -58,7 +58,7 @@ class TruckController extends Controller
         $data['area_6'] = $request->input('area_6');
         // dd($data);
         if ($request->hasFile('image_path')) {
-            $filePath = Storage::disk('public')->put('image/trucks/images', request()->file('image_path'), 'public');
+            $filePath = Storage::disk('trucks')->put('/', $request->file('image_path'));
             $data['image_path'] = $filePath;
         }
         $truck = Truck::create($data);

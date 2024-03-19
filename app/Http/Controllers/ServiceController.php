@@ -50,7 +50,7 @@ class ServiceController extends Controller
         $country = Country::find($request->country_id);
         $data = $request->validated() ;
         if($request->hasFile('image_path')){
-            $filePath = Storage::disk('public')->put('image/services/images', $request->file('image_path'), 'public');
+            $filePath = Storage::disk('services')->put('/', $request->file('image_path'));
             $data['image_path'] = $filePath ;
         }
         if ($country->services()->create($data)) {

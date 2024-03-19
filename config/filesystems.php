@@ -43,6 +43,20 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'trucks' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/trucks/images',
+        ],
+        
+        'services' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/services/images',
+        ],
+
+        'countries' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/countries/images',
+        ],
 
         's3' => [
             'driver' => 's3',
