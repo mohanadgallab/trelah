@@ -1,9 +1,10 @@
 <div class="container">
     <div class="heroswiper">
+      {{-- {{ dd($trucks)}} --}}
       <div class="swiper-wrapper">
         @foreach ($trucks as $truck)
         <div class="swiper-slide swiper-slide-active">
-            <img src="{{ Storage::url($truck->image_path)}}" alt="">
+            <img src="{{ asset('trucks/'.$truck->image_path)}}" alt="">
             <div class="info">
               <h4 class="name">
                 {{$truck->name}}

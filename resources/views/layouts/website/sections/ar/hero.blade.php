@@ -8,7 +8,7 @@
         </div>
       </div>
 
-      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+      <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="250">
         @include('layouts.website.sections.ar.hero-slide')
       </div>
 

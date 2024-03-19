@@ -195,7 +195,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="text-center border-end">
-                            <img src="{{ Storage::url($country->image_path)}}" class="img-fluid avatar-xxl rounded-circle" alt="">
+                            <img src="{{ asset('countries/'.$country->image_path)}}" class="img-fluid avatar-xxl rounded-circle" alt="">
                             <h4 class="text-primary font-size-20 mt-3 mb-2">{{ $country->name}}</h4>
                             {{-- <h5 class="text-muted font-size-13 mb-0">Web Designer</h5> --}}
                         </div>
@@ -237,7 +237,7 @@
                                 <div class="card-body">
                                     <div class="d-flex mb-4">
                                         <div class="flex-grow-1 align-items-start">
-                                            <img src="{{ Storage::url($service->image_path)}}" alt="" class="rounded-circle avatar-sm">
+                                            <img src="{{ asset('services/'.$service->image_path)}}" alt="" class="rounded-circle avatar-sm">
                                         </div>
                                         <div class="dropdown ms-2">
                                             <a href="#" class="dropdown-toggle font-size-16 text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
