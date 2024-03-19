@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TruckRequest;
 use App\Models\Truck;
-
+// use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +17,7 @@ class TruckController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -58,8 +58,13 @@ class TruckController extends Controller
         $data['area_6'] = $request->input('area_6');
         // dd($data);
         if ($request->hasFile('image_path')) {
-            $filePath = Storage::disk('trucks')->put('/', $request->file('image_path'));
-            $data['image_path'] = $filePath;
+            // $filePath = Storage::disk('trucks')->put('/', $request->file('image_path'));
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' .$fileExtention ;
+            $path = 'trucks';
+            $request->file('image_path')->move($path,$fileName);
+
+            $data['image_path'] = $fileName ;
         }
         $truck = Truck::create($data);
 
@@ -99,21 +104,26 @@ class TruckController extends Controller
      */
     public function update(TruckRequest $request, Truck $truck)
     {
-        
+
         $data = $request->validated();
 
         if ($request->hasFile('image_path')) {
             // delete image
-            Storage::disk('public')->delete($truck->image_path);
+            Storage::disk('trucks')->delete($truck->image_path);
+            
 
-            $filePath = Storage::disk('public')->put('image/trucks/images', request()->file('image_path'), 'public');
-            $data['image_path'] = $filePath;
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' .$fileExtention ;
+            $path = 'trucks';
+            $request->file('image_path')->move($path,$fileName);
+
+            $data['image_path'] = $fileName ;;
         }
 
         $update = $truck->update($data);
 
-        if($update) {
-            
+        if ($update) {
+
             return redirect()->route('trucks.index')->with('status', 'Truck updated successfully!');
         }
 
@@ -128,7 +138,7 @@ class TruckController extends Controller
      */
     public function destroy(Truck $truck)
     {
-        Storage::disk('public')->delete($truck->image_path);
+        // Storage::disk('trucks')->delete($truck->image_path);
         $truck->delete();
 
         return redirect()->route('trucks.index')->with('status', 'Truck Deleted Successfully');

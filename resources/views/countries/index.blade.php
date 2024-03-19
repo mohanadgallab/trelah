@@ -28,7 +28,7 @@
                                     <th>1</th>
                                     <td>{{ $country->name }}</td>
                                     <td style="width:100px; height: 50px">{{ substr($country->content,0,50) }}</td>
-                                    <td style="width:150px"><img src="{{ asset('/countries/images/'.$country->image_path) }}"
+                                    <td style="width:150px"><img src="{{ asset('/countries/'.$country->image_path) }}"
                                             class="img-fluid img-thumbnail"></td>
                                     <td style="" class="">
                                         <a href="{{ route('countries.show', [$country]) }}"

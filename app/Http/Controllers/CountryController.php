@@ -48,8 +48,12 @@ class CountryController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('image_path')) {
-            $filePath = Storage::disk('countries')->put('/', $request->file('image_path'), 'public');
-            $data['image_path'] = $filePath ;
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' .$fileExtention ;
+            $path = 'countries';
+            $request->file('image_path')->move($path,$fileName);
+
+            $data['image_path'] = $fileName ;
         }
 
         $country = Country::create($data);
@@ -92,9 +96,14 @@ class CountryController extends Controller
         $data = $request->validated() ;
 
         if ($request->hasFile('image_path')) {
-            Storage::disk('public')->delete($country->image_path);
-            $filePath = Storage::disk('public')->put('/image/countries/images', $request->file('image_path'), 'public');
-            $data['image_path'] = $filePath ;
+            //Storage::disk('public')->delete($country->image_path);
+
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' .$fileExtention ;
+            $path = 'countries';
+            $request->file('image_path')->move($path,$fileName);
+
+            $data['image_path'] = $fileName ;
         }
         if ($country->update($data)) {
             return redirect()->route('countries.index')->with('status', 'Country Updated Successfully');
@@ -111,7 +120,7 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        Storage::disk('public')->delete($country->image_path);
+        // Storage::disk('public')->delete($country->image_path);
         $country->delete();
 
         return redirect()->route('countries.index')->with('status', 'Country Deleted Successfully');

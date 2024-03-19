@@ -50,8 +50,12 @@ class ServiceController extends Controller
         $country = Country::find($request->country_id);
         $data = $request->validated() ;
         if($request->hasFile('image_path')){
-            $filePath = Storage::disk('services')->put('/', $request->file('image_path'));
-            $data['image_path'] = $filePath ;
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' .$fileExtention ;
+            $path = 'services';
+            $request->file('image_path')->move($path,$fileName);
+
+            $data['image_path'] = $fileName ;
         }
         if ($country->services()->create($data)) {
             return redirect()->route('services.index')->with('status', 'Service Added Successfully');
@@ -92,9 +96,13 @@ class ServiceController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('image_path')) {
-            Storage::disk('public')->delete($service->image_path);
-            $filePath = Storage::disk('public')->put('image/services/images', $request->file('image_path'), 'public');
-            $data['image_path'] = $filePath ;
+            // Storage::disk('public')->delete($service->image_path);
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' .$fileExtention ;
+            $path = 'services';
+            $request->file('image_path')->move($path,$fileName);
+
+            $data['image_path'] = $fileName ;
         }
         if ($service->update($data)) {
             return redirect()->route('services.index')->with('status', 'Service Updated Successfully');

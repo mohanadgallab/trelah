@@ -30,7 +30,7 @@
                                     <td>{{ $service->name }}</td>
                                     <td style="width:100px">{{ substr($service->desc,0,100) }}</td>
                                     <td style="width:100px">{{ $service->type }}</td>
-                                    <td style="width:150px"><img src="{{ asset('services/images/'.$service->image_path) }}"
+                                    <td style="width:150px"><img src="{{ asset('services/'.$service->image_path) }}"
                                             class="img-fluid img-thumbnail"></td>
                                     <td style="" class="">
                                         <a href="{{ route('services.show', [$service]) }}"
