@@ -2,8 +2,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Check our Services</p>
+          <h2>خدماتنا</h2>
+          <p>نظرة علي خدماتنا</p>
         </div>
 
         <div class="row">
