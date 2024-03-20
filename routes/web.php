@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\HeroController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TruckController;
@@ -26,6 +28,8 @@ Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::resource('about', AboutController::class);
+    Route::resource('hero', HeroController::class);
     Route::resource('trucks', TruckController::class);
     Route::resource('countries', CountryController::class);
     Route::resource('services', ServiceController::class);

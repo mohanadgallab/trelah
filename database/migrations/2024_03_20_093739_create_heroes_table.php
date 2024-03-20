@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('services', function (Blueprint $table) {
-            $table->enum('type',['land','sea','air'])->default('land')->nullable();
+        Schema::create('heroes', function (Blueprint $table) {
+            $table->id();
+            $table->enum('lang',['ar','en'])->default('ar');
+            $table->string('spanh1');
+            $table->string('h1');
+            $table->string('spanh2')->nullable();
+            $table->string('h2');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('services', function (Blueprint $table) {
-            $table->dropColumn('type');
-        });
+        Schema::dropIfExists('heroes');
     }
 };

@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('country_id')->constrained('countries')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('name');
             $table->enum('lang',['ar','en'])->default('ar');
+            $table->foreignId('country_id')->constrained('countries')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('service_id')->constrained('services')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('name');
             $table->string('image_path');
-            $table->string('icon');
             $table->text('desc');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('items');
     }
 };
