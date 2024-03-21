@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->enum('lang',['ar','en'])->default('ar');
             $table->text('content')->nullable();
             $table->string('image_path')->nullable();

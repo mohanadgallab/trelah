@@ -13,7 +13,7 @@ class ItemRequst extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class ItemRequst extends FormRequest
     public function rules()
     {
         return [
-            //
+            'lang' => ['required'], 
+            'country_id' => ['required'],
+            'service_id' => ['required'],
+             'name' => ['required', 'min:5' , 'unique:items'],
+             'image_path' => ['required', 'image'],
+             'desc' => ['required', 'min:10']
         ];
     }
 }

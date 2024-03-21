@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('country_id')->constrained('countries')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->enum('lang',['ar','en'])->default('ar');
             $table->string('image_path');
             $table->string('icon');

@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','desc','image_path','country_id','type'];
+    protected $fillable = ['name','desc','image_path', 'slug','country_id','lang', 'icon'];
 
+    
     public function country(){
         return $this->belongsTo(Country::class);
     }

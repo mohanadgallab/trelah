@@ -8,6 +8,8 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Str ;
+
 class ServiceController extends Controller
 {
 
@@ -49,6 +51,7 @@ class ServiceController extends Controller
     {
         $country = Country::find($request->country_id);
         $data = $request->validated() ;
+        $data['slug'] = Str::slug($request->input('name'), "-");
         if($request->hasFile('image_path')){
             $fileExtention = $request->file('image_path')->getClientOriginalExtension();
             $fileName = time() . '.' .$fileExtention ;
@@ -95,6 +98,7 @@ class ServiceController extends Controller
     public function update(ServiceRequest $request, Service $service)
     {
         $data = $request->validated();
+        // $data['slug'] = Str::slug($request->input('name'), "-");
         if ($request->hasFile('image_path')) {
             // Storage::disk('public')->delete($service->image_path);
             $fileExtention = $request->file('image_path')->getClientOriginalExtension();

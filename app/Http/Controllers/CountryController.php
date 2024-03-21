@@ -6,6 +6,7 @@ use App\Http\Requests\CountryRequest;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str ;
 
 class CountryController extends Controller
 {
@@ -46,7 +47,7 @@ class CountryController extends Controller
     public function store(CountryRequest $request)
     {
         $data = $request->validated();
-
+        $data['slug'] = Str::slug($request->input('name'), "-");
         if ($request->hasFile('image_path')) {
             $fileExtention = $request->file('image_path')->getClientOriginalExtension();
             $fileName = time() . '.' .$fileExtention ;

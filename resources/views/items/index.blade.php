@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    Services
-                    <a href="{{ route('services.create')}}" class="btn btn-info float-end">Add New</a>
+                    About
+                    <a href="{{ route('items.create')}}" class="btn btn-info float-end">Create</a>
                 </div>
         
                 <div class="card-body">
@@ -16,31 +16,29 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Icon</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">icon</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($services as $service)
+                            @foreach ($items  as $item)
                                 <tr>
                                     <th>1</th>
-                                    <td>{{ $service->name }}</td>
-                                    <td style="width:100px">{{ substr($service->desc,0,100) }}</td>
-                                    <td style="width:100px"><i class="{{ $service->icon }}"></i></td>
-                                    <td style="width:150px"><img src="{{ asset('services/'.$service->image_path) }}"
+                                    <td>{{ $item->title }}</td>
+                                    <td style="width:100px; height: 50px">{{ substr($item->desc,0,50) }}</td>
+                                    <td style="width:150px"><img src="{{ asset('items/'.$item->image_path) }}"
                                             class="img-fluid img-thumbnail"></td>
                                     <td style="" class="">
-                                        <a href="{{ route('services.show', [$service]) }}"
+                                        <a href="{{ route('countries.show', [$item]) }}"
                                             class="btn btn-secondary m-2">
                                             View
                                         </a>
-                                        <a href="{{ route('services.edit', $service) }}" class="btn btn-warning m-2">
+                                        <a href="{{ route('items.edit', $item) }}" class="btn btn-warning m-2">
                                             Edit
                                         </a>
-                                        <form method="post" action="{{ route('services.destroy', $service) }}"
+                                        <form method="post" action="{{ route('items.destroy', $item) }}"
                                             style="display:inline-block">
                                             @csrf
                                             @method('delete')

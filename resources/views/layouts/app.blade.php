@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -59,11 +59,15 @@
                             <a class="nav-link" href="{{ route('services.index') }}">Services</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('items.index') }}">items</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('about.index') }}">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('hero.index') }}">Hero</a>
                         </li>
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

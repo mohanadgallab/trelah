@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ItemController ;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('about', AboutController::class);
     Route::resource('hero', HeroController::class);
+    Route::resource('items', ItemController::class);
     Route::resource('trucks', TruckController::class);
     Route::resource('countries', CountryController::class);
     Route::resource('services', ServiceController::class);

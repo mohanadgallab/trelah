@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('country_id')->constrained('countries')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('service_id')->constrained('services')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->string('image_path');
             $table->text('desc');
             $table->timestamps();

@@ -1,3 +1,6 @@
+
+<!-------------LANGUAGE------------------->
+
 <div class="form-group mb-2">
 
     <label for="lang">lang</label>
@@ -24,34 +27,9 @@
 
 </div>
 
-{{-- Type --}}
-<div class="form-group mb-2">
 
-    <label for="type">type</label>
+<!-------------Country------------------->
 
-    <select name="type" class="form-control @error('type') is-invalid @enderror">
-
-        <option value="">--Select--</option>
-
-        <option value="land" {{ 'land' == old('type', $service->type) ? 'selected' : '' }}>Land</option>
-        <option value="sea" {{ 'sea' == old('type', $service->type) ? 'selected' : '' }}>Sea</option>
-
-        <option value="air" {{ 'air' == old('type', $service->type) ? 'selected' : '' }}>Air</option>
-
-
-    </select>
-
-    @error('type')
-
-    <span class="invalid-feedback" role="alert">
-
-        <strong>{{ $message }} </strong>
-
-    </span>
-
-    @enderror
-
-</div>
 <div class="form-group mb-2">
     <label for="lang">Country</label>
     <select name="country_id" class="form-control @error('country_id') is-invalid @enderror">
@@ -67,6 +45,9 @@
     </span>
     @enderror
 </div>
+
+<!-------------NAME------------------->
+
 <div class="form-group">
     <label for="name">name</label>
     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $service->name ) }} " />
@@ -76,6 +57,9 @@
     </span>
     @enderror
 </div>
+
+
+<!-------------IMAGE------------------->
 
 <div class="form-group">
     <label for="image_path">Image</label>
@@ -91,6 +75,7 @@
 </div>
 
 
+<!-------------DESCRIPTION------------------->
 
 <div class="form-group">
     <label for="desc">desc</label>
@@ -101,49 +86,17 @@
     </span>
     @enderror
 </div>
-{{-- <div class="form-group">
-    <label for="body">Body</label>
-    <textarea name="body" class="form-control @error('body') is-invalid @enderror">{{ old('body', $country->body ) }}</textarea>
-    @error('body')
+
+
+<!-------------ICON------------------->
+
+<div class="form-group">
+    <label for="icon">Icon</label>
+    <input type="text" name="icon" class="form-control @error('icon') is-invalid @enderror" value="{{ old('icon', $service->icon ) }} " />
+    @error('icon')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }} </strong>
     </span>
     @enderror
 </div>
-
-<div class="form-group">
-    <label for="type">Type</label>
-    <select name="type" class="form-control @error('type') is-invalid @enderror">
-        <option value="">--Select--</option>
-        <option value="short" {{ 'short' == old('type', $country->type) ? 'selected' : '' }}>Short</option>
-        <option value="long" {{ 'long' == old('type', $country->type) ? 'selected' : '' }}>Long</option>
-    </select>
-    @error('type')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }} </strong>
-    </span>
-    @enderror
-</div>
-
-<div class="form-group">
-    <legend>
-        <h6>Status</h6>
-    </legend>
-
-    <div class="form-check @error('status') is-invalid @enderror">
-        <input type="radio" class="form-check-input" name="status" value="1" {{ '1' == old('status', $truck->status) ? 'checked' : '' }}>
-        <label for="active" class="form-check-label">Yes</label>
-    </div>
-
-    <div class="form-check">
-        <input type="radio" class="form-check-input" name="status" value="0" {{ '0' == old('status', $truck->status) ? 'checked' : '' }}>
-        <label for="active" class="form-check-label">No</label>
-    </div>
-    @error('status')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }} </strong>
-    </span>
-    @enderror
-</div> --}}
-
 

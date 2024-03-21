@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemRequst;
+use App\Http\Requests\ItemUpdatRequest;
+use App\Models\Country;
 use App\Models\Item;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str ;
 
 class ItemController extends Controller
 {
@@ -14,7 +19,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::all();
+        return view('items.index', compact('items'));
     }
 
     /**
@@ -24,7 +30,10 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        $item = new Item ;
+        $countries = Country::all();
+        $services = Service::all();
+        return view('items.create', compact('item','countries', 'services'));
     }
 
     /**
@@ -33,9 +42,25 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemRequst $request)
     {
-        //
+        $country = Country::find($request->country_id);
+        $data = $request->validated(); 
+        $data['slug'] = Str::slug($request->input('name'), "-");
+        // $country = Country::find($request->county_id);
+        // dd($data);
+        if ($request->hasFile('image_path')) {
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' . $fileExtention ;
+            $path = 'items' ;
+            $request->file('image_path')->move($path, $fileName);
+
+            $data['image_path'] = $fileName ;
+        }
+         ;
+        if ($country->items()->create($data)) {
+            return redirect()->route('items.index')->with('status', 'Items Created Successsfully');
+        }
     }
 
     /**
@@ -46,7 +71,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('items.show' , compact('item'));
     }
 
     /**
@@ -57,7 +82,9 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        $countries = Country::all();
+        $services = Service::all();
+        return view('items.edit', compact('item','countries', 'services'));
     }
 
     /**
@@ -67,9 +94,21 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(ItemUpdatRequest $request, Item $item)
     {
-        //
+        $data = $request->validated(); 
+        if ($request->hasFile('image')) {
+            $fileExtention = $request->file('image_path')->getClientOriginalExtension();
+            $fileName = time() . '.' . $fileExtention ;
+            $path = 'items' ;
+            $request->file('image_path')->move($path, $fileName);
+
+            $data['image_path'] = $fileName ;
+        }
+        
+        if ($item->update($data)) {
+            return redirect()->route('items.index')->with('status', 'Items Updated Successsfully');
+        }
     }
 
     /**
@@ -80,6 +119,7 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
+        $item->delete();
+        return redirect()->route('items.index')->with('status', 'Items Deleted Successsfully');
     }
 }
