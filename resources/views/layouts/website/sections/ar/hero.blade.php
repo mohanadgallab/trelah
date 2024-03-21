@@ -2,10 +2,14 @@
     <div class="container" data-aos="fade-up">
 
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        @foreach ($hero as $h)
         <div class="col-xl-6 col-lg-8">
-          <h1> <span>تريلا</span> للشحن من الامارات</h1>
-          <h2>دعم اللوجستي متوفر خلال 24 ساعة طيلة الاسبوع</h2>
+          <h1> 
+            <span>{{ $h->spanh1 }}</span> 
+             {{ $h->h1}}</h1>
+          <h2>{{ $h->h2 }}<span>{{ $h->spanh2 }}</span></h2>
         </div>
+        @endforeach
       </div>
 
       <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="250">

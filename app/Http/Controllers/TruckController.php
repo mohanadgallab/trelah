@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TruckRequest;
+use App\Http\Requests\TruckUpdatRequest;
 use App\Models\Truck;
 // use Faker\Provider\File;
 use Illuminate\Http\Request;
@@ -102,7 +103,7 @@ class TruckController extends Controller
      * @param  \App\Models\Truck  $truck
      * @return \Illuminate\Http\Response
      */
-    public function update(TruckRequest $request, Truck $truck)
+    public function update(TruckUpdatRequest $request, Truck $truck)
     {
 
         $data = $request->validated();

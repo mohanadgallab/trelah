@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Country;
+use App\Models\Hero;
 use App\Models\Service;
 use App\Models\Truck;
 use Illuminate\Http\Request;
@@ -33,6 +35,8 @@ class HomeController extends Controller
         $trucks = Truck::all() ;
         $countries = Country::all();
         $services = Service::all() ;
-        return view('website', compact('trucks','countries','services'));
+        $about = About::where('lang', 'ar')->get();
+        $hero = Hero::where('lang','ar')->get();
+        return view('website', compact('trucks','countries','services', 'about', 'hero'));
     }
 }

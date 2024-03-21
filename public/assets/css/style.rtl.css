@@ -483,7 +483,11 @@ h6 {
 }
 /* SWIPER */
 
-.heroswiper {
+/* $primary: #c31432;
+$secondary: #240b36;
+$gradient: linear-gradient(to right, #c31432, #240b36); */
+
+#hero .heroswiper {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -495,7 +499,7 @@ h6 {
     filter: grayscale(80%);
     transition: all 0.8s cubic-bezier(0.25, 0.4, 0.45, 1.4);
     border-radius: 15px;
-    background: $gradient;
+    background: linear-gradient(to right, #ffc55125, #0808084a);
     overflow: hidden;
     img {
       width: 100%;
@@ -524,10 +528,10 @@ h6 {
     filter: none;
   }
 
-  //custom navigation
+  /* //custom navigation */
 
   .swiper-pagination-bullet-active {
-    background-color: $primary !important;
+    background-color: #c31432 !important;
   }
 
   .swiper-pagination-bullet {
@@ -540,9 +544,9 @@ h6 {
     width: 40px;
     height: 40px;
     background: rgb(255, 255, 38);
-    border: 3px solid $secondary;
+    border: 3px solid #240b36;
     border-radius: 50%;
-    color: $primary;
+    color: #c31432;
     font-weight: 700;
     outline: 0;
     transition: background-color 0.2s ease, color 0.2s ease;

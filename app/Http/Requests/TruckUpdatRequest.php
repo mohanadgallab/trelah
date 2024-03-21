@@ -13,7 +13,7 @@ class TruckUpdatRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class TruckUpdatRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'lang' => ['sometimes'],
+            'name' => ['sometimes'],
+            'image_path' => ['sometimes', 'image'],
+            'long' => ['sometimes', 'integer'],
+            'width' => ['sometimes', 'integer'],
+            'weight' => ['sometimes', 'integer'],
         ];
     }
 }
