@@ -3,7 +3,7 @@
       {{-- {{ dd($trucks)}} --}}
       <div class="swiper-wrapper">
         @foreach ($trucks as $truck)
-        <div class="swiper-slide swiper-slide-active">
+        <a href="{{ route('trucks.portofolio', $truck)}}" class="swiper-slide swiper-slide-active">
             <img src="{{ asset('trucks/'.$truck->image_path)}}" alt="">
             <div class="info">
               <h4 class="name">
@@ -13,7 +13,7 @@
                 {{ $truck->desc}}
               </span>
             </div>
-          </div>
+          </a>
         @endforeach
       </div>
       <!-- If we need pagination -->

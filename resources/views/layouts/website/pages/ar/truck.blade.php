@@ -1,13 +1,13 @@
 
 @extends('layouts.website.ar.master')
 @section('meta-tag')
-<title>Trelah</title>
-<meta content="تريلا هي شركة من ضمن شركات الشحن البري في الامارات والى كافة دول الخليج تجدنا بخبراتنا الكافية لشحن انواع عديدة في المجال التجاري والشخصي" name="description">
-<meta content="خدمات شحن بري شحن جوي شحن بحري من الامارات الى كافة انحاء الممكلة العربية السعودية و دولة الكويت و مملكة البحرين و سلطنة عمان و دولة قطر" name="keywords">
+<title>{{$truck->name}}</title>
+<meta content="{{ $truck->area_1 .' ,'. $truck->area_2 .' ,'. $truck->area_3 .' ,'. $truck->area_4 .' ,'. $truck->area_5.' ,'. $truck->area_6}}" name="description">
+<meta content="{{ $truck->name}}" name="keywords">
 <!-----------Open Graph------------->
-<meta property="og:title" content="تريلا هي شركة من ضمن شركات الشحن البري في الامارات والى كافة دول الخليج تجدنا بخبراتنا الكافية لشحن انواع عديدة في المجال التجاري والشخصي تريلا شركة شحن بري من الامارات الى السعودية" />
-<meta property="og:description" content="خدمات شحن بري شحن جوي شحن بحري من الامارات الى كافة انحاء الممكلة العربية السعودية و دولة الكويت و مملكة البحرين و سلطنة عمان و دولة قطر" />
-<meta property="og:image" content="https://trelah.com/logo.png" />
+<meta property="og:title" content="{{ $truck->name}}" />
+<meta property="og:description" content="{{ $truck->area_1 .' ,'. $truck->area_2 .' ,'. $truck->area_3 .' ,'. $truck->area_4 .' ,'. $truck->area_5.' ,'. $truck->area_6}}" />
+<meta property="og:image" content="asset('trucks/'.$truck->image_path)" />
 <!-- Favicons -->
 <link href="https://trelah.com/logo.png" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -25,7 +25,7 @@
     <div class="container">
 
       <div class="d-flex justify-content-between align-items-center">
-        <h2>مناطق الخدمة</h2>
+        <h1>مناطق الخدمة</h1>
         <ol>
           <li><a href="/">الرئيسية</a></li>
           <li>المنطقة</li>
@@ -46,7 +46,7 @@
             <div class="swiper-wrapper align-items-center">
 
               <div class="swiper-slide">
-                <img src="{{ asset('items/'.$item->image_path)}}" alt="">
+                <img src="{{ asset('trucks/'.$truck->image_path)}}" alt="">
               </div>
 
             </div>
@@ -56,19 +56,32 @@
 
         <div class="col-lg-4">
           <div class="portfolio-info">
-            <h3>{{$item->name}}</h3>
+            <h3>{{$truck->name}}</h3>
             <ul>
-              <li><strong>البلد :</strong>{{$item->country->name}}</li>
-              <li><strong>نوع الخدمة</strong>:{{ $item->service->name}}</li>
+              <li><strong>البلد :</strong>{{$truck->long}}</li>
+              <li><strong>نوع الخدمة</strong>:{{ $truck->width}}</li>
+              <li><strong>نوع الخدمة</strong>:{{ $truck->weight}}</li>
               {{-- <li><strong>Project date</strong>: 01 March, 2020</li>
               <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> --}}
             </ul>
           </div>
           <div class="portfolio-description">
-            <h2>{{ $item->name}}</h2>
+            <h2>{{ $truck->name}}</h2>
             <p>
-              {{ $item->desc}}
+              {{ $truck->area_1}}
             </p>
+            <p>
+                {{ $truck->area_2}}
+              </p>
+              <p>
+                {{ $truck->area_3}}
+              </p>
+              <p>
+                {{ $truck->area_4}}
+              </p>
+              <p>
+                {{ $truck->area_6}}
+              </p>
           </div>
         </div>
 

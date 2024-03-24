@@ -128,7 +128,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgb(0, 0, 0);
 }
 
 #header .logo {
@@ -818,10 +818,11 @@ section {
   font-weight: 700;
   margin-bottom: 15px;
   font-size: 24px;
+  margin-top: 15px;
 }
 
 .services .icon-box h4 a {
-  color: #151515;
+  color: #ffc55187;
   transition: ease-in-out 0.3s;
 }
 
@@ -837,7 +838,7 @@ section {
 
 .services .icon-box:hover {
   border-color: #fff;
-  box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 25px 0px rgb(255, 255, 255);
   transform: translateY(-10px);
 }
 
@@ -1520,7 +1521,7 @@ padding: 20px;
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background: whitesmoke;
+  background: rgba(46, 46, 46, 0.253);
   min-height: 40px;
   margin-top: 74px;
 }

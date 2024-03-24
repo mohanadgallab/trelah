@@ -50,4 +50,15 @@ class HomeController extends Controller
        return view('portfolio', compact('item','trucks','countries','services', 'about', 'hero'));
 
     }
+
+    public function service(Service $service){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.service', compact('service', 'countries'));
+        
+    }
+    public function truck(Truck $truck){
+
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.truck', compact('truck','countries'));
+    }
 }

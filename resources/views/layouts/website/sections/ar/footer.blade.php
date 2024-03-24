@@ -13,11 +13,11 @@
                 <strong>Email:</strong> info@trelah.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://twitter.com/trelah_uae" class="twitter" target="blank"><i class="bx bxl-twitter"></i></a>
+                <a href="https://www.facebook.com/shipping.company.in.Dubai" class="facebook" target="blank"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/trelah_uae/" class="instagram" target="blank"><i class="bx bxl-instagram" ></i></a>
+                <a href="https://www.snapchat.com/add/trelah_uae?share_id=wL8JFPh_u-o&locale=ar-EG" class="google-plus" target="blank"><i class='bx bxl-snapchat'></i></a>
+                <a href="https://www.linkedin.com/in/trelah-uae-shipping-to-saudi-bahrain-kuwait-qatar-muscat-b605a9281/" class="linkedin" target="blank"><i class="bx bxl-linkedin"></i></a>
               </div>
             </div>
           </div>

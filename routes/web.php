@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'arHome'] );
+Route::get('/trucks/{truck}', [HomeController::class, 'truck'])->name('trucks.portofolio');
+Route::get('/services/{service}', [HomeController::class, 'service'])->name('services.portofolio');
 Route::get('/areas/{item}', [HomeController::class, 'areas'] )->name('areas.item');
 
 Auth::routes();
