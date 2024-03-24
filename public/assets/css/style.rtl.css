@@ -539,11 +539,19 @@ $gradient: linear-gradient(to right, #c31432, #240b36); */
   /* //custom navigation */
 
   .swiper-pagination-bullet-active {
-    background-color: #c31432 !important;
+    background-color: #fbe413 !important;
   }
 
   .swiper-pagination-bullet {
     background-color: grey;
+  }
+
+  .swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fbe413'%2F%3E%3C%2Fsvg%3E") !important;
+  }
+  
+  .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fbe413'%2F%3E%3C%2Fsvg%3E") !important;
   }
 
   .swiper-button-prev,
@@ -551,10 +559,10 @@ $gradient: linear-gradient(to right, #c31432, #240b36); */
     top: 50%;
     width: 40px;
     height: 40px;
-    background: rgb(255, 255, 38);
-    border: 3px solid #240b36;
+    background: rgba(253, 253, 253, 0);
+    border: 3px solid transparent;
     border-radius: 50%;
-    color: #c31432;
+    color: #ffffff00;
     font-weight: 700;
     outline: 0;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -579,13 +587,13 @@ $gradient: linear-gradient(to right, #c31432, #240b36); */
   }
 
   .swiper-button-prev,
-  .swiper-container-rtl .swiper-button-next {
+  .swiper-container-rtl .swiper-button-prev {
     left: 10px;
     right: auto;
   }
 
   .swiper-button-next,
-  .swiper-container-rtl .swiper-button-prev {
+  .swiper-container-rtl .swiper-button-next {
     right: 10px;
     left: auto;
   }
@@ -662,10 +670,14 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about {
+  background: linear-gradient(to right, #a7a29825, #0808084a);
+}
 .about .content h3 {
   font-weight: 700;
   font-size: 28px;
   font-family: "Poppins", sans-serif;
+  
 }
 
 .about .content ul {
@@ -709,7 +721,7 @@ section {
 }
 
 .clients .swiper-pagination {
-  margin-top: 20px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -730,6 +742,7 @@ section {
 --------------------------------------------------------------*/
 .features {
   padding-top: 20px;
+  background: linear-gradient(to right, #0a080525, #0808084a);
 }
 
 .features .icon-box {
@@ -766,7 +779,7 @@ section {
 --------------------------------------------------------------*/
 .services {
   /* From https://css.glass */
-  background: rgba(0, 0, 0, 0.95);
+  background: linear-gradient(to right, #bebebd25, #0808084a);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -1261,7 +1274,7 @@ border: 1px solid rgba(0, 0, 0, 0.28);
 # Team
 --------------------------------------------------------------*/
 .team {
-  background: #fff;
+  background: linear-gradient(to right, #d1d1d125, #0808084a);
   padding: 60px 0;
 }
 
@@ -1270,7 +1283,7 @@ border: 1px solid rgba(0, 0, 0, 0.28);
   overflow: hidden;
   border-radius: 5px;
   background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 15px rgb(255, 255, 255);
 }
 
 .team .member .member-img {
@@ -1349,17 +1362,18 @@ border: 1px solid rgba(0, 0, 0, 0.28);
 .contact iframe {
   background: rgba(0, 0, 0, 0.235);
 border-radius: 16px;
-box-shadow: 0 10px 20px rgba(174, 174, 174, 0.799);
+box-shadow: 1px 2px 15px rgb(255, 255, 255);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(0, 0, 0, 0.28);
 }
 .contact .info {
   width: 100%;
+  padding: 19px;
   /* From https://css.glass */
 background: rgba(0, 0, 0, 0.95);
 border-radius: 16px;
-box-shadow: 0 10px 20px rgba(174, 174, 174, 0.799);
+box-shadow: 1px 2px 15px rgb(255, 255, 255);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(0, 0, 0, 0.28);
@@ -1405,7 +1419,7 @@ border: 1px solid rgba(0, 0, 0, 0.28);
   width: 100%;
   background: rgba(0, 0, 0, 0.95);
 border-radius: 16px;
-box-shadow: 0 10px 20px rgba(174, 174, 174, 0.799);
+box-shadow: 1px 2px 15px rgb(255, 255, 255);
 backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(0, 0, 0, 0.28);

@@ -9,7 +9,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">الرئيسية</a></li>
           <li><a class="nav-link scrollto" href="#about">من نحن</a></li>
-          <li><a class="nav-link scrollto" href="#services">خدماانا</a></li>
+          <li><a class="nav-link scrollto" href="#services">خدماتنا</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">معرض الأعمال</a></li>
           <li><a class="nav-link scrollto" href="#team">فريقنا</a></li>
           <li class="dropdown"><a href="#"><span>مناطق الخدمة</span> <i class="bi bi-chevron-down"></i></a>
@@ -19,7 +19,7 @@
               <li class="dropdown"><a href="#"><span>{{ $country->name}}</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   @foreach ($country->items as $item)
-                  <li><a href="#">{{$item->name}}</a></li>
+                  <li><a href="{{ route('areas.item' , [$item])}}">{{$item->name}}</a></li>
                     
                   @endforeach
                   
@@ -34,7 +34,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#about" class="get-started-btn scrollto">هيا بنا</a>
+      <a href="#about" class="get-started-btn scrollto">البداية </a>
 
     </div>
   </header>
