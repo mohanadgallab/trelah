@@ -56,10 +56,13 @@
                             <a class="nav-link" href="{{ route('countries.index') }}">Country</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('services.index') }}">Services</a>
+                            <a class="nav-link" href="{{ route('services.index') }}">Public Services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('items.index') }}">items</a>
+                            <a class="nav-link" href="{{ route('items.index') }}">Countries Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('others.index') }}">Others Services</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('about.index') }}">About</a>

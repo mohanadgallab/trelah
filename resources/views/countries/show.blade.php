@@ -231,7 +231,7 @@
                 <div class="tab-pane active show" id="team-tab" role="tabpanel">
                     <h4 class="card-title mb-4">Team</h4>
                     <div class="row">
-                        @foreach ($country->services as $service )
+                        @foreach ($country->items as $service )
                         <div class="col-xl-4 col-md-6" id="team-3">
                             <div class="card">
                                 <div class="card-body">

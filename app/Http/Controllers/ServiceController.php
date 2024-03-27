@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CoserviceRequest;
 use App\Http\Requests\ServiceRequest;
+use App\Http\Requests\ServiceUpdatRequest;
+use App\Models\CoService;
 use App\Models\Country;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -49,7 +52,7 @@ class ServiceController extends Controller
      */
     public function store(ServiceRequest $request)
     {
-        $country = Country::find($request->country_id);
+        
         $data = $request->validated() ;
         $data['slug'] = Str::slug($request->input('name'), "-");
         if($request->hasFile('image_path')){
@@ -60,7 +63,8 @@ class ServiceController extends Controller
 
             $data['image_path'] = $fileName ;
         }
-        if ($country->services()->create($data)) {
+        $service = Service::create($data);
+        if ($service) {
             return redirect()->route('services.index')->with('status', 'Service Added Successfully');
         }
     }
@@ -73,7 +77,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        return view('services.show' , compact('service'));
+        $co = new CoService ;
+        return view('services.show' , compact('service', 'co'));
     }
 
     /**
@@ -95,7 +100,7 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceRequest $request, Service $service)
+    public function update(ServiceUpdatRequest $request, Service $service)
     {
         $data = $request->validated();
         // $data['slug'] = Str::slug($request->input('name'), "-");
@@ -125,5 +130,22 @@ class ServiceController extends Controller
         $service->delete();
         return redirect()->route('services.index')->with('status', 'Service Deleted Successfully');
 
+    }
+
+
+    public function coIndex(){
+
+    }
+
+    public function coStore(CoserviceRequest $request ,Service $service){
+        
+        // dd($request->all());
+        // $service = Service::where( 'id' ,$request->service_id);
+        // dd($request->all());
+        // $service->CoServices()->create($request->all());
+        $data = $request->validated();
+        CoService::create($data);
+
+        return redirect()->route('services.show', $request->service_id)->with('status', 'DONE');
     }
 }

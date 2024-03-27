@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServiceUpdatRequest extends FormRequest
+class CoserviceUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,10 @@ class ServiceUpdatRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ['required', 'min:5', 'unique:services'],
-            "desc" => ['sometimes'],
-            "image_path" => ['sometimes', 'image'],
-            "icon" => ['sometimes'],
-            "lang" => ['required'],
-            "country_id" => ['required']
+            "name" => ['sometimes'],
+            "lang" => ['sometimes'],
+            "service_id" => ['sometimes'],
+            "desc" => ['sometimes']
         ];
     }
 }

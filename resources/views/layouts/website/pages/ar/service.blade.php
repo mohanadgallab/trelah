@@ -2,11 +2,11 @@
 @extends('layouts.website.ar.master')
 @section('meta-tag')
 <title>{{$service->name}}</title>
-<meta content="{{ $service->desc}}" name="description">
-<meta content="{{ $service->name}}" name="keywords">
+<meta content="{{$service->name} . ',' . $service->desc}}" name="description">
+<meta content="{{$service->name} . ',' . $service->desc}} "name="keywords">
 <!-----------Open Graph------------->
 <meta property="og:title" content="{{ $service->name}}" />
-<meta property="og:description" content="{{ $service->desc}}" />
+<meta property="og:description" content="{{$service->name} . ',' . $service->desc}}" />
 <meta property="og:image" content="asset('services/'.$service->image_path)" />
 <!-- Favicons -->
 <link href="https://trelah.com/logo.png" rel="icon">
@@ -45,8 +45,8 @@
           <div class="portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
 
-              <div class="swiper-slide">
-                <img src="{{ asset('services/'.$service->image_path)}}" alt="">
+              <div class="swiper-slide w-90">
+                <img src="{{ asset('services/'.$service->image_path)}}" alt="{{$service->name}}" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
               </div>
 
             </div>
@@ -58,7 +58,7 @@
           <div class="portfolio-info">
             <h3>{{$service->name}}</h3>
             <ul>
-              <li><strong>البلد :</strong>{{$service->country->name}}</li>
+              <li><strong>البلد :</strong>{{$service->subtitle}}</li>
               {{-- <li><strong>نوع الخدمة</strong>:{{ $service->service->name}}</li>
               <li><strong>Project date</strong>: 01 March, 2020</li>
               <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> --}}

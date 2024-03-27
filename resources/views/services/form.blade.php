@@ -28,23 +28,7 @@
 </div>
 
 
-<!-------------Country------------------->
 
-<div class="form-group mb-2">
-    <label for="lang">Country</label>
-    <select name="country_id" class="form-control @error('country_id') is-invalid @enderror">
-        <option value="">--Select--</option>
-        @foreach ($countries as $country )
-        <option value="{{ $country->id}}">{{ $country->name}}</option>
-        @endforeach
-        
-    </select>
-    @error('country_id')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }} </strong>
-    </span>
-    @enderror
-</div>
 
 <!-------------NAME------------------->
 
@@ -52,6 +36,18 @@
     <label for="name">name</label>
     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $service->name ) }} " />
     @error('name')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }} </strong>
+    </span>
+    @enderror
+</div>
+
+<!-------------SUBTITLE------------------->
+
+<div class="form-group">
+    <label for="subtitle">subtitle</label>
+    <input type="text" name="subtitle" class="form-control @error('subtitle') is-invalid @enderror" value="{{ old('subtitle', $service->subtitle ) }} " />
+    @error('subtitle')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }} </strong>
     </span>
@@ -88,15 +84,5 @@
 </div>
 
 
-<!-------------ICON------------------->
 
-<div class="form-group">
-    <label for="icon">Icon</label>
-    <input type="text" name="icon" class="form-control @error('icon') is-invalid @enderror" value="{{ old('icon', $service->icon ) }} " />
-    @error('icon')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }} </strong>
-    </span>
-    @enderror
-</div>
 
