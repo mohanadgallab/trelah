@@ -24,12 +24,12 @@ class ItemUpdatRequest extends FormRequest
     public function rules()
     {
         return [
-            'lang' => ['required'], 
-            'county_id' => ['required'],
-            'service_id' => ['required'],
-             'name' => ['required', 'min:5' , 'unique:items'],
+            'lang' => ['sometimes'], 
+            'county_id' => ['sometimes'],
+            'service_id' => ['sometimes'],
+             'name' => ['sometimes', 'min:5' , 'unique:items'],
              'image_path' => ['sometimes'],
-             'desc' => ['required']
+             'desc' => ['sometimes']
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CountryUpdatRequest extends FormRequest
+class ServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class CountryUpdatRequest extends FormRequest
     public function rules()
     {
         return [
-            'lang' => ['sometimes'],
-            'name' => ['sometimes'],
-            'image_path' => ['sometimes', 'image'],
-            'content' => ['sometimes']
+            "name" => ['required', 'min:5','unique:services'],
+            "lang" => ['required'],
+            "desc" => ['required'],
+            "image" => ['required','image']
         ];
     }
 }

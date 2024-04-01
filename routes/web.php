@@ -10,7 +10,9 @@ use App\Http\Controllers\OtherController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TruckController;
 use App\Models\CoService;
+use App\Models\Country;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Constraint\Count;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'arHome'] );
 Route::get('/trucks/{truck}', [HomeController::class, 'truck'])->name('trucks.portofolio');
-Route::get('/services/{service}', [HomeController::class, 'service'])->name('services.portofolio');
+// Route::get('/services/{service}', [HomeController::class, 'service'])->name('services.portofolio');
+Route::get('/services/land',[HomeController::class, 'land'] );
+Route::get('/services/sea',[HomeController::class, 'sea'] );
+Route::get('/services/air',[HomeController::class, 'air'] );
+Route::get('/services/cars', [HomeController::class, 'cars']);
+Route::get('/services/furniture', [HomeController::class, 'furniture']);
 Route::get('/areas/{item}', [HomeController::class, 'areas'] )->name('areas.item');
 
 Auth::routes();

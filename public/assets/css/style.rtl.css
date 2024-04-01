@@ -677,6 +677,7 @@ section {
   font-weight: 700;
   font-size: 28px;
   font-family: "Poppins", sans-serif;
+  color: #fca311;
   
 }
 
@@ -797,8 +798,8 @@ section {
 
 .services .icon-box .icon {
   margin: 0 auto;
-  width: 64px;
-  height: 64px;
+  width: 30px;
+  height: 30px;
   background: #ffc451;
   border-radius: 4px;
   display: flex;
@@ -1009,6 +1010,11 @@ section {
 --------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 40px;
+  background: linear-gradient(60deg, #000000 0%, #20262c 100%);
+
+}
+.portfolio-details h1, .portfolio-details h2 , .portfolio-details h3 ,.portfolio-details h4 ,.portfolio-details h5{
+  color : #ffc451;
 }
 
 .portfolio-details .portfolio-details-slider img {
@@ -1054,7 +1060,14 @@ section {
 .portfolio-details .portfolio-info ul li+li {
   margin-top: 10px;
 }
-
+.document{
+  background:  linear-gradient(60deg, #000000 0%, #20262c 100%) !important;
+  padding: 20px;
+  margin: auto;
+}
+.document ::after{
+  background: #000000;
+}
 .portfolio-details .portfolio-description {
   padding-top: 30px;
 }

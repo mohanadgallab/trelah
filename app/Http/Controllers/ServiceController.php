@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CoserviceRequest;
 use App\Http\Requests\ServiceRequest;
+use App\Http\Requests\ServiceUpdateRequest;
 use App\Http\Requests\ServiceUpdatRequest;
 use App\Models\CoService;
 use App\Models\Country;
@@ -50,10 +51,11 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ServiceRequest $request)
+    public function store(Request $request)
     {
         
-        $data = $request->validated() ;
+        // dd($request->all()) ;
+        $data = $request->all() ;
         $data['slug'] = Str::slug($request->input('name'), "-");
         if($request->hasFile('image_path')){
             $fileExtention = $request->file('image_path')->getClientOriginalExtension();
@@ -77,8 +79,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        $co = new CoService ;
-        return view('services.show' , compact('service', 'co'));
+        
+        return view('services.show' , compact('service'));
     }
 
     /**
@@ -100,7 +102,7 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(ServiceUpdatRequest $request, Service $service)
+    public function update(ServiceUpdateRequest $request, Service $service)
     {
         $data = $request->validated();
         // $data['slug'] = Str::slug($request->input('name'), "-");
@@ -133,19 +135,5 @@ class ServiceController extends Controller
     }
 
 
-    public function coIndex(){
-
-    }
-
-    public function coStore(CoserviceRequest $request ,Service $service){
-        
-        // dd($request->all());
-        // $service = Service::where( 'id' ,$request->service_id);
-        // dd($request->all());
-        // $service->CoServices()->create($request->all());
-        $data = $request->validated();
-        CoService::create($data);
-
-        return redirect()->route('services.show', $request->service_id)->with('status', 'DONE');
-    }
+    
 }

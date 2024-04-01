@@ -61,4 +61,25 @@ class HomeController extends Controller
         $countries = Country::all();
         return view('layouts.website.pages.ar.truck', compact('truck','countries'));
     }
+
+    public function land(){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.services.land',compact('countries'));
+    }
+    public function sea(){
+        $countries = Country::all();
+    return view('layouts.website.pages.ar.services.sea',compact('countries'));
+    }
+    public function air(){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.services.air',compact('countries'));
+    }
+    public function cars(){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.services.cars',compact('countries'));
+    }
+    public function furniture(){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.services.furniture',compact('countries'));
+    }
 }

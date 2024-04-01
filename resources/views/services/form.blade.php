@@ -42,18 +42,6 @@
     @enderror
 </div>
 
-<!-------------SUBTITLE------------------->
-
-<div class="form-group">
-    <label for="subtitle">subtitle</label>
-    <input type="text" name="subtitle" class="form-control @error('subtitle') is-invalid @enderror" value="{{ old('subtitle', $service->subtitle ) }} " />
-    @error('subtitle')
-    <span class="invalid-feedback" role="alert">
-        <strong>{{ $message }} </strong>
-    </span>
-    @enderror
-</div>
-
 
 <!-------------IMAGE------------------->
 
@@ -71,10 +59,10 @@
 </div>
 
 
-<!-------------DESCRIPTION------------------->
+<!-------------descRIPTION------------------->
 
 <div class="form-group">
-    <label for="desc">desc</label>
+    <label for="desc">Description</label>
     <textarea name="desc" cols="20" class="form-control @error('desc') is-invalid @enderror">{{ old('desc', $service->desc ) }}</textarea>
     @error('desc')
     <span class="invalid-feedback" role="alert">

@@ -2,11 +2,11 @@
 @extends('layouts.website.ar.master')
 @section('meta-tag')
 <title>{{$service->name}}</title>
-<meta content="{{$service->name} . ',' . $service->desc}}" name="description">
-<meta content="{{$service->name} . ',' . $service->desc}} "name="keywords">
+<meta content="{{$service->name}} . ',' . {{$service->desc}}" name="description">
+<meta content="{{$service->name}} . ',' . {{$service->desc}} "name="keywords">
 <!-----------Open Graph------------->
 <meta property="og:title" content="{{ $service->name}}" />
-<meta property="og:description" content="{{$service->name} . ',' . $service->desc}}" />
+<meta property="og:description" content="{{$service->name}} . ',' . {{$service->desc}}" />
 <meta property="og:image" content="asset('services/'.$service->image_path)" />
 <!-- Favicons -->
 <link href="https://trelah.com/logo.png" rel="icon">
@@ -41,7 +41,7 @@
 
       <div class="row gy-4">
 
-        <div class="col-lg-8">
+        <div class="col-lg-4">
           <div class="portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
 
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-8">
           <div class="portfolio-info">
             <h3>{{$service->name}}</h3>
             <ul>
@@ -71,7 +71,12 @@
             </p>
           </div>
         </div>
-
+        <div class="col-md-8">
+          @foreach ($service->others as $other)
+            <h3 style="color: #fca311">{{$other->title}}</h3>
+            <p>{{$other->desc}}</p>
+          @endforeach
+        </div>
       </div>
 
     </div>

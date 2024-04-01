@@ -8,7 +8,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>{{$a->title}}</h3>
-            <p class="fst-italic">
+            <p class="">
               {{ $a->subtitle}}
             </p>
             <ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CountryRequest;
+use App\Http\Requests\CountryUpdatRequest;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -92,7 +93,7 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(CountryRequest $request, Country $country)
+    public function update(CountryUpdatRequest $request, Country $country)
     {
         $data = $request->validated() ;
 

@@ -2,11 +2,11 @@
 @extends('layouts.website.ar.master')
 @section('meta-tag')
 <title>{{$truck->name}}</title>
-<meta content="{{$truck->name .',' $truck->area_1 .' ,'. $truck->area_2 .' ,'. $truck->area_3 .' ,'. $truck->area_4 .' ,'. $truck->area_5.' ,'. $truck->area_6}}" name="description">
+<meta content="{{$truck->name}} .',' {{$truck->area_1}} .' ,'. {{$truck->area_2}} .' ,'. {{$truck->area_3}} .' ,'. {{$truck->area_4 }}.' ,'. {{$truck->area_5}}.' ,'. {{$truck->area_6}}" name="description">
 <meta content="{{ $truck->name}}" name="keywords">
 <!-----------Open Graph------------->
 <meta property="og:title" content="{{ $truck->name}}" />
-<meta property="og:description" content="{{ $truck->area_1 .' ,'. $truck->area_2 .' ,'. $truck->area_3 .' ,'. $truck->area_4 .' ,'. $truck->area_5.' ,'. $truck->area_6}}" />
+<meta property="og:description" content="{{$truck->name}} .',' {{$truck->area_1}} .' ,'. {{$truck->area_2}} .' ,'. {{$truck->area_3}} .' ,'. {{$truck->area_4 }}.' ,'. {{$truck->area_5}}.' ,'. {{$truck->area_6}}" />
 <meta property="og:image" content="asset('trucks/'.$truck->image_path)" />
 <!-- Favicons -->
 <link href="https://trelah.com/logo.png" rel="icon">
@@ -46,7 +46,7 @@
             <div class="swiper-wrapper align-items-center">
 
               <div class="swiper-slide">
-                <img src="{{ asset('trucks/'.$truck->image_path)}}" alt="{{$service->name}}" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
+                <img src="{{ asset('trucks/'.$truck->image_path)}}" alt="{{$truck->name}}" style="display: block;margin-left: auto;margin-right: auto;width: 50%;">
               </div>
 
             </div>
@@ -58,15 +58,15 @@
           <div class="portfolio-info">
             <h3>{{$truck->name}}</h3>
             <ul>
-              <li><strong>الطول :</strong>{{$truck->long}} متر</li>
-              <li><strong> العرض</strong>:{{ $truck->width}} متر </li>
-              <li><strong> الوزن</strong>:{{ $truck->weight}} طن </li>
+              <li><strong>الطول :</strong>cm {{$truck->long}} </li>
+              <li><strong> العرض</strong>:cm {{ $truck->width}}  </li>
+              <li><strong> الوزن</strong>:kg {{ $truck->weight}}  </li>
               {{-- <li><strong>Project date</strong>: 01 March, 2020</li>
               <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li> --}}
             </ul>
           </div>
           <div class="portfolio-description">
-            <h2>{{ $truck->name}}</h2>
+            <h2 style="color:#fca311">{{ $truck->name}}</h2>
             <p>
               {{ $truck->area_1}}
             </p>
