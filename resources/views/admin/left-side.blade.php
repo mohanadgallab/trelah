@@ -24,11 +24,21 @@
                 data-accordion="false">
 
                 <li class="nav-item">
+                    <a href="{{ route('admin.messages')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Messages
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('trucks.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Trucks
-                            <span class="right badge badge-danger">New</span>
+                            {{-- <span class="right badge badge-danger">New</span> --}}
                         </p>
                     </a>
                 </li>
@@ -37,7 +47,7 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             countries
-                            <span class="right badge badge-danger">New</span>
+                            {{-- <span class="right badge badge-danger">New</span> --}}
                         </p>
                     </a>
                 </li>

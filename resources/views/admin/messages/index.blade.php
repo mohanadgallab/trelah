@@ -10,7 +10,7 @@
                     <div class="box-header">
                         <h3 class="box-title">
                             Countries
-                            <a href="{{route('countries.create')}}" class="btn btn-info float-right">Create</a>
+                            {{-- <a href="{{route('countries.create')}}" class="btn btn-info float-right">Create</a> --}}
                         </h3>
                         
                     </div><!-- /.box-header -->
@@ -19,19 +19,21 @@
                             <tr>
                                 <th>ID</th>
                                 <th>name</th>
-                                <th>Lang</th>
-                                <th>Description</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach ($countries as $country)
+                            @foreach ($messages as $message)
                                 <tr>
-                                    <td>{{$country->id}}</td>
-                                    <td>{{$country->name}}</td>
-                                    <td>{{$country->lang}}</td>
-                                    <td>{{ substr($country->content,0, -10)}}</td>
+                                    <td>{{$message->id}}</td>
+                                    <td>{{$message->name}}</td>
+                                    <td>{{$message->email}}</td>
+                                    <td>{{ $message->subject }}</td>
+                                    <td>{{ $message->created_at }}</td>
                                     <td>
-                                        <a href="{{ route('countries.edit', $country)}}" class="btn btn-warning mr-1">Edit</a>
-                                        <form method="post" action="{{ route('countries.destroy', $country) }}"
+                                        {{-- <a href="{{ route('messages.edit', $message)}}" class="btn btn-warning mr-1">Edit</a> --}}
+                                        <form method="post" action="{{ route('admin.messages.delete', $message) }}"
                                                     style="display:inline-block">
                                                     @csrf
                                                     @method('delete')
@@ -41,7 +43,7 @@
                                 </tr>
                             @endforeach
                         </table>
-                        {!! $countries->withQueryString()->links('pagination::bootstrap-5') !!}
+                        {!! $messages->withQueryString()->links('pagination::bootstrap-5') !!}
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div>

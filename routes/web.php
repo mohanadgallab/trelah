@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CoServiceController;
 use App\Http\Controllers\ItemController ;
 use App\Http\Controllers\CountryController;
@@ -43,6 +44,8 @@ Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('messages', [ContactController::class, 'index'])->name('admin.messages');
+    Route::delete('messages/{contact}', [ContactController::class, 'destroy'])->name('admin.messages.delete');
     Route::resource('about', AboutController::class);
     Route::resource('hero', HeroController::class);
     Route::resource('items', ItemController::class);
