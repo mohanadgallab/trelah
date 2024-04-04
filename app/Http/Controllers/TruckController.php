@@ -26,8 +26,8 @@ class TruckController extends Controller
      */
     public function index()
     {
-        $trucks = Truck::all();
-        return view('trucks.index', compact('trucks'));
+        $trucks = Truck::paginate(5);
+        return view('admin.trucks.index', compact('trucks'));
     }
 
     /**
@@ -49,8 +49,10 @@ class TruckController extends Controller
      */
     public function store(TruckRequest $request)
     {
+        // dd($request->all());
         $data = $request->validated();
         $data['slug'] = Str::slug($request->input('name'), "-");
+        $data['lang'] = $request->input('lang');
         $data['area_1'] = $request->input('area_1');
         $data['area_2'] = $request->input('area_2');
         $data['area_3'] = $request->input('area_3');

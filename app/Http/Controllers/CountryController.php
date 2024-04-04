@@ -24,7 +24,7 @@ class CountryController extends Controller
     {
         $countries = Country::all();
 
-        return view('countries.index', compact('countries'));
+        return view('admin.countries.index', compact('countries'));
     }
 
     /**

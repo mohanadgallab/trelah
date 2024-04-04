@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
+use App\Mail\ContactMail;
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\Country;
 use App\Models\Hero;
 use App\Models\Item;
 use App\Models\Service;
 use App\Models\Truck;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -42,7 +46,7 @@ class HomeController extends Controller
     }
 
     public function areas(Item $item){
-        $trucks = Truck::all() ;
+        $trucks = Truck::where('lang', 'ar')->get() ;
         $countries = Country::all();
         $services = Service::all() ;
         $about = About::where('lang', 'ar')->get();
@@ -81,5 +85,10 @@ class HomeController extends Controller
     public function furniture(){
         $countries = Country::all();
         return view('layouts.website.pages.ar.services.furniture',compact('countries'));
+    }
+
+    public function contact(ContactRequest $request){
+        Contact::create($request->all());
+        return redirect()->back()->with('email', 'Your message has been sent. Thank you!');
     }
 }

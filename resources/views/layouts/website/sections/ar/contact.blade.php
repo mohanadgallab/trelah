@@ -40,7 +40,8 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="{{ route('web.contact')}}" method="post" role="form" class="php-email-formm">
+            @csrf
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="الإسم" required>
@@ -58,7 +59,9 @@
             <div class="my-3">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
+              @if(Session::has('email'))
               <div class="sent-message">Your message has been sent. Thank you!</div>
+              @endif
             </div>
             <div class="text-center"><button type="submit">إرسال الرسالة</button></div>
           </form>

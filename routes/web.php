@@ -25,7 +25,8 @@ use PHPUnit\Framework\Constraint\Count;
 |
 */
 
-Route::get('/', [HomeController::class, 'arHome'] );
+Route::get('/', [HomeController::class, 'arHome'] )->name('web');
+Route::post('/contact', [HomeController::class, 'contact'] )->name('web.contact');
 Route::get('/trucks/{truck}', [HomeController::class, 'truck'])->name('trucks.portofolio');
 // Route::get('/services/{service}', [HomeController::class, 'service'])->name('services.portofolio');
 Route::get('/services/land',[HomeController::class, 'land'] );
