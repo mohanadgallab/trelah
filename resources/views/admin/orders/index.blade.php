@@ -9,8 +9,8 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">
-                            Countries
-                            <a href="{{route('countries.create')}}" class="btn btn-info float-right">Create</a>
+                            Orders
+                            <a href="{{route('trucks.create')}}" class="btn btn-info float-right">Create</a>
                         </h3>
                         
                     </div><!-- /.box-header -->
@@ -19,20 +19,23 @@
                             <tr>
                                 <th>ID</th>
                                 <th>name</th>
-                                <th>Lang</th>
-                                <th>Description</th>
+                                <th>Mobile</th>
+                                <th>Quantity</th>
+                                <th>From</th>
+                                <th>Destination</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach ($countries as $country)
+                            @foreach ($orders as $truck)
                                 <tr>
-                                    <td>{{$country->id}}</td>
-                                    <td>{{$country->name}}</td>
-                                    <td>{{$country->lang}}</td>
-                                    <td>{{ substr($country->content,0,50)}}</td>
+                                    <td>{{$truck->id}}</td>
+                                    <td>{{$truck->name}}</td>
+                                    <td>{{$truck->mobile}}</td>
+                                    <td>{{$truck->qty}}</td>
+                                    <td>{{$truck->from_to}}</td>
+                                    <td>{{$truck->to_to}}</td>
                                     <td>
-                                        <a href="{{ route('countries.show', [$country])}}" class="btn btn-secondary mr-1">Show</a>
-                                        <a href="{{ route('countries.edit', $country)}}" class="btn btn-warning mr-1">Edit</a>
-                                        <form method="post" action="{{ route('countries.destroy', $country) }}"
+                                        <a href="{{}}" class="btn btn-warning mr-1">Edit</a>
+                                        <form method="post" action=" "
                                                     style="display:inline-block">
                                                     @csrf
                                                     @method('delete')
@@ -42,7 +45,7 @@
                                 </tr>
                             @endforeach
                         </table>
-                        {!! $countries->withQueryString()->links('pagination::bootstrap-5') !!}
+                        {!! $orders->withQueryString()->links('pagination::bootstrap-5') !!}
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div>

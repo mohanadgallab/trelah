@@ -17,4 +17,8 @@ class Item extends Model
     public function service(){
         return $this->belongsTo(Service::class);
     }
+
+    public function details(){
+        return $this->hasMany(Detail::class);
+    }
 }

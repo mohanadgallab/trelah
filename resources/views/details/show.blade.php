@@ -3,9 +3,6 @@
 @section('content')
 <div class="container">
 <div class="row">
-    <div class="col-md-12">
-        <a href="{{ route('items.index')}}" class="btn btn-info float-right mb-3">Back</a>
-    </div>
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body pb-0">
@@ -38,7 +35,7 @@
                 </div><!-- end row -->
             </div><!-- end card body -->
         </div><!-- end card -->
-        <a href="{{ route('details.create', $item)}}" class="btn btn-warning mb-3">Create Details</a>
+        <a href="{{}}" class="btn btn-warning">Create Details</a>
         <div class="card">
             <div class="tab-content p-4">
                 

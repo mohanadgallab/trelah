@@ -1,6 +1,6 @@
 <div class="container">
     <div class="heroswiper">
-      {{-- {{ dd($trucks)}} --}}
+      {{-- {{ dd($trucks->count())}} --}}
       <div class="swiper-wrapper">
         @foreach ($trucks as $truck)
         <a href="{{ route('trucks.portofolio', $truck)}}" class="swiper-slide swiper-slide-active">

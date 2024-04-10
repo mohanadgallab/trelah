@@ -10,7 +10,7 @@
                     <div class="box-header">
                         <h3 class="box-title">
                             Countries
-                            <a href="{{route('countries.create')}}" class="btn btn-info float-right">Create</a>
+                            <a href="{{route('items.create')}}" class="btn btn-info float-right">Create</a>
                         </h3>
                         
                     </div><!-- /.box-header -->
@@ -20,19 +20,21 @@
                                 <th>ID</th>
                                 <th>name</th>
                                 <th>Lang</th>
+                                <th>Country</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
-                            @foreach ($countries as $country)
+                            @foreach ($items as $item)
                                 <tr>
-                                    <td>{{$country->id}}</td>
-                                    <td>{{$country->name}}</td>
-                                    <td>{{$country->lang}}</td>
-                                    <td>{{ substr($country->content,0,50)}}</td>
+                                    <td>{{$item->id}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->lang}}</td>
+                                    <td>{{$item->country->name}}</td>
+                                    <td>{{ substr($item->desc,0,50)}}</td>
                                     <td>
-                                        <a href="{{ route('countries.show', [$country])}}" class="btn btn-secondary mr-1">Show</a>
-                                        <a href="{{ route('countries.edit', $country)}}" class="btn btn-warning mr-1">Edit</a>
-                                        <form method="post" action="{{ route('countries.destroy', $country) }}"
+                                        <a href="{{ route('items.show', [$item])}}" class="btn btn-secondary mr-1">Show</a>
+                                        <a href="{{ route('items.edit', $item)}}" class="btn btn-warning mr-1">Edit</a>
+                                        <form method="post" action="{{ route('items.destroy', $item) }}"
                                                     style="display:inline-block">
                                                     @csrf
                                                     @method('delete')
@@ -42,7 +44,7 @@
                                 </tr>
                             @endforeach
                         </table>
-                        {!! $countries->withQueryString()->links('pagination::bootstrap-5') !!}
+                        {!! $items->withQueryString()->links('pagination::bootstrap-5') !!}
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div>

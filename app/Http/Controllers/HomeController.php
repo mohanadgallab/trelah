@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\Country;
 use App\Models\Hero;
 use App\Models\Item;
+use App\Models\Order;
 use App\Models\Service;
 use App\Models\Truck;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class HomeController extends Controller
     }
 
     public function arHome(){
-        $trucks = Truck::all() ;
+        $trucks =Truck::where('lang', 'ar')->get() ;
         $countries = Country::all();
         $services = Service::all() ;
         $about = About::where('lang', 'ar')->get();
@@ -46,7 +47,7 @@ class HomeController extends Controller
     }
 
     public function areas(Item $item){
-        $trucks = Truck::where('lang', 'ar')->get() ;
+        $trucks = Truck::all() ;
         $countries = Country::all();
         $services = Service::all() ;
         $about = About::where('lang', 'ar')->get();
@@ -65,7 +66,18 @@ class HomeController extends Controller
         $countries = Country::all();
         return view('layouts.website.pages.ar.truck', compact('truck','countries'));
     }
-
+    public function makeOrder(Truck $truck){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.order', compact('truck','countries'));
+    }
+    public function saveOrder(Request $request){
+        $truck = Truck::findOrFail($request->truck_id);
+        $data = new Order($request->all());
+        if($truck){
+            $truck->orders()->save($data);
+            return redirect()->back()->with('order','Your Order Delivered');
+        }
+    }
     public function land(){
         $countries = Country::all();
         return view('layouts.website.pages.ar.services.land',compact('countries'));

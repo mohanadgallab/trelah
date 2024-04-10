@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ItemRequst;
 use App\Http\Requests\ItemUpdatRequest;
 use App\Models\Country;
+use App\Models\Detail;
 use App\Models\Item;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -19,8 +20,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
-        return view('items.index', compact('items'));
+        $items = Item::orderBy('id','desc')->paginate(5);
+        return view('admin.items.index', compact('items'));
     }
 
     /**
@@ -121,5 +122,29 @@ class ItemController extends Controller
     {
         $item->delete();
         return redirect()->route('items.index')->with('status', 'Items Deleted Successsfully');
+    }
+
+    public function createDetails(Item $item){
+
+        return view('details.create', compact('item'));
+    }
+
+    public function storeDetails( Request $request){
+        // dd($request->all());
+        $item = Item::findOrFail($request->item_id);
+        //dd($item);
+        $data = new Detail($request->all());
+        if ($item) {
+            $item->details()->save($data);
+            return redirect()->back()->with('success', 'Details Add Successfully');
+        }
+
+         echo 'ERRO';
+
+       
+    }
+    public function deleteDetails(Detail $detail){
+        $detail->delete();
+
     }
 }
