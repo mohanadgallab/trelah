@@ -20,6 +20,7 @@
                                 <th>ID</th>
                                 <th>name</th>
                                 <th>Mobile</th>
+                                <th>Truck</th>
                                 <th>Quantity</th>
                                 <th>From</th>
                                 <th>Destination</th>
@@ -30,6 +31,7 @@
                                     <td>{{$truck->id}}</td>
                                     <td>{{$truck->name}}</td>
                                     <td>{{$truck->mobile}}</td>
+                                    <td>{{$truck->truck->name}}</td>
                                     <td>{{$truck->qty}}</td>
                                     <td>{{$truck->from_to}}</td>
                                     <td>{{$truck->to_to}}</td>

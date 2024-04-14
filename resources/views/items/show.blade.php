@@ -48,14 +48,12 @@
                 <div class="tab-pane active show" id="team-tab" role="tabpanel">
                     <h4 class="card-title mb-4">Team</h4>
                     <div class="row">
-                        {{-- @foreach ($country->services as $service )
+                         @foreach ($item->details as $details )
                         <div class="col-xl-4 col-md-6" id="team-3">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex mb-4">
-                                        <div class="flex-grow-1 align-items-start">
-                                            <img src="{{ asset('services/'.$service->image_path)}}" alt="" class="rounded-circle avatar-sm">
-                                        </div>
+                                       
                                         <div class="dropdown ms-2">
                                             <a href="#" class="dropdown-toggle font-size-16 text-muted" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="mdi mdi-dots-horizontal"></i>
@@ -70,15 +68,15 @@
                                         </div><!-- end dropdown -->
                                     </div>
                                     <div>
-                                        <h5 class="mb-1 font-size-17">{{ $service->name}}</h5>
-                                        <p class="text-muted  font-size-13 mb-0">{{ $service->desc}}</p>
+                                        <h5 class="mb-1 font-size-17">{{ $details->main_title}}</h5>
+                                        <p class="text-muted  font-size-13 mb-0">{{ $details->paragraph}}</p>
                                     </div>
                                 </div>
                                 <!-- end card-body -->
                             </div><!-- end card -->
                             
                         </div> 
-                        @endforeach --}}
+                        @endforeach
                         <!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end tab pane -->
