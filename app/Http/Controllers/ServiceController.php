@@ -9,6 +9,7 @@ use App\Http\Requests\ServiceUpdatRequest;
 use App\Models\CoService;
 use App\Models\Country;
 use App\Models\Service;
+use App\Models\Story;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,8 +30,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
-        return view('services.index', compact('services'));
+        $services = Service::orderBy('id','desc')->paginate(5);
+        return view('admin.services.index', compact('services'));
     }
 
     /**
@@ -132,6 +133,31 @@ class ServiceController extends Controller
         $service->delete();
         return redirect()->route('services.index')->with('status', 'Service Deleted Successfully');
 
+    }
+
+    public function createStory (Service $service){
+
+        return view('stories.create', compact('service'));
+    }
+
+    public function storeStory (Request $request){
+
+        // dd($request->all());
+        $service = Service::findOrFail($request->item_id);
+        //dd($item);
+        $data = new Story($request->all());
+        if ($service) {
+            $service->stories()->save($data);
+            return redirect()->back()->with('success', 'Story Service Add Successfully');
+        }
+
+         echo 'ERRO';
+
+    }
+
+    public function deleteStory (Story $story){
+
+       $story->delete();
     }
 
 

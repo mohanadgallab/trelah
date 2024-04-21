@@ -15,8 +15,8 @@ class HeroController extends Controller
      */
     public function index()
     {
-        $hero = Hero::all() ;
-        return view('hero.index', compact('hero'));
+        $hero = Hero::paginate() ;
+        return view('admin.hero.index', compact('hero'));
     }
 
     /**

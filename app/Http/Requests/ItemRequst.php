@@ -27,7 +27,7 @@ class ItemRequst extends FormRequest
             'lang' => ['required'], 
             'country_id' => ['required'],
             'service_id' => ['required'],
-             'name' => ['required', 'min:5' , 'unique:items'],
+             'name' => ['required', 'min:5'],
              'image_path' => ['required', 'image'],
              'desc' => ['required', 'min:10']
         ];

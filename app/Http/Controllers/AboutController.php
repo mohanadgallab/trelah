@@ -15,9 +15,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::all();
+        $about = About::paginate();
 
-        return view('about.index', compact('about'));
+        return view('admin.about.index', compact('about'));
     }
 
     /**

@@ -95,10 +95,10 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(ItemUpdatRequest $request, Item $item)
+    public function update(Request $request, Item $item)
     {
-        $data = $request->validated(); 
-        if ($request->hasFile('image')) {
+        $data = $request->all(); 
+        if ($request->hasFile('image_path')) {
             $fileExtention = $request->file('image_path')->getClientOriginalExtension();
             $fileName = time() . '.' . $fileExtention ;
             $path = 'items' ;

@@ -40,6 +40,9 @@ Route::get('/services/cars', [HomeController::class, 'cars']);
 Route::get('/services/furniture', [HomeController::class, 'furniture']);
 Route::get('/areas/{item}', [HomeController::class, 'areas'] )->name('areas.item');
 
+Route::prefix('en')->group(function(){
+    Route::get('/', [HomeController::class, 'enHome'])->name('web.en');
+});
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -58,6 +61,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('trucks', TruckController::class);
     Route::resource('countries', CountryController::class);
     Route::resource('services', ServiceController::class);
+    Route::get('services/{service}/stories',[ServiceController::class, 'createStory'])->name('stories.create');
+    Route::post('services/{service}/stories/store',[ServiceController::class, 'storeStory'])->name('stories.store');
+    Route::delete('services/{service}/stories/{story}',[ServiceController::class, 'deleteStory'])->name('stories.delete');
     Route::get('/services/co', [ServiceController::class, 'coIndex'])->name('co.index');
     Route::post('/services/co', [ServiceController::class, 'coStore'])->name('co.store');
     Route::resource('others', OtherController::class);

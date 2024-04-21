@@ -36,7 +36,7 @@
     <select name="service_id" class="form-control @error('service_id') is-invalid @enderror">
         <option value="">--Select--</option>
         @foreach ($services as $service)
-            <option value="{{ $service->id }}">{{ $service->name}}</option>
+            <option value="{{ old('service_id', $service->id) }}">{{ $service->name}}</option>
         @endforeach
     </select>
     @error('service_id')

@@ -37,15 +37,26 @@ class HomeController extends Controller
         return view('home');
     }
 
+    // Arabic
     public function arHome(){
         $trucks =Truck::where('lang', 'ar')->get() ;
-        $countries = Country::all();
+        $countries = Country::where('lang', 'ar')->get();
         $services = Service::all() ;
         $about = About::where('lang', 'ar')->get();
         $hero = Hero::where('lang','ar')->get();
         return view('website', compact('trucks','countries','services', 'about', 'hero'));
     }
-
+    // English
+    public function enHome(){
+        $trucks =Truck::where('lang', 'en')->get() ;
+        $countries = Country::where('lang', 'en')->get();
+        $services = Service::all() ;
+        $about = About::where('lang', 'en')->get();
+        $hero = Hero::where('lang','en')->get();
+        return view('en-website', compact('trucks','countries','services', 'about', 'hero'));
+    }
+    // ############################################################################################
+    // Arabic
     public function areas(Item $item){
         $trucks = Truck::all() ;
         $countries = Country::all();
@@ -56,16 +67,44 @@ class HomeController extends Controller
 
     }
 
+    // English
+    public function enAreas(Item $item){
+        $trucks = Truck::all() ;
+        $countries = Country::all();
+        $services = Service::all() ;
+        $about = About::where('lang', 'ar')->get();
+        $hero = Hero::where('lang','ar')->get();
+       return view('portfolio', compact('item','trucks','countries','services', 'about', 'hero'));
+    }
+// ###########################################################################################
+    // Arabic
     public function service(Service $service){
         $countries = Country::all();
         return view('layouts.website.pages.ar.service', compact('service', 'countries'));
         
     }
+    // English
+    public function enService(Service $service){
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.service', compact('service', 'countries'));
+        
+    }
+
+    // ############################################################################
+    // Arabic
     public function truck(Truck $truck){
 
         $countries = Country::all();
         return view('layouts.website.pages.ar.truck', compact('truck','countries'));
     }
+    // English
+    public function arTruck(Truck $truck){
+
+        $countries = Country::all();
+        return view('layouts.website.pages.ar.truck', compact('truck','countries'));
+    }
+
+    // #############################################################################
     public function makeOrder(Truck $truck){
         $countries = Country::all();
         return view('layouts.website.pages.ar.order', compact('truck','countries'));
@@ -78,6 +117,7 @@ class HomeController extends Controller
             return redirect()->back()->with('order','Your Order Delivered');
         }
     }
+
     public function land(){
         $countries = Country::all();
         return view('layouts.website.pages.ar.services.land',compact('countries'));

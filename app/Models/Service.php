@@ -13,4 +13,8 @@ class Service extends Model
     public function others(){
         return $this->hasMany(Other::class);
     }
+
+    public function stories(){
+        return $this->hasMany(Story::class);
+    }
 }
