@@ -34,7 +34,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#about" class="get-started-btn scrollto">Arabic</a>
+      <a href="{{ route('web')}}" class="get-started-btn scrollto">Arabic</a>
 
     </div>
   </header>

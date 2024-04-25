@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function enHome(){
         $trucks =Truck::where('lang', 'en')->get() ;
         $countries = Country::where('lang', 'en')->get();
-        $services = Service::all() ;
+        $services = Service::where('lang', 'en')->get() ;
         $about = About::where('lang', 'en')->get();
         $hero = Hero::where('lang','en')->get();
         return view('en-website', compact('trucks','countries','services', 'about', 'hero'));

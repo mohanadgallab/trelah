@@ -49,6 +49,7 @@ class CountryController extends Controller
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($request->input('name'), "-");
+        // $data['lang'] = $request->lang ;
         if ($request->hasFile('image_path')) {
             $fileExtention = $request->file('image_path')->getClientOriginalExtension();
             $fileName = time() . '.' .$fileExtention ;

@@ -11,7 +11,7 @@
                 </div>
         
                 <div class="card-body">
-                    <form action="{{ route('countries.store') }}" method="POST" class="form-inline" enctype="multipart/form-data">
+                    <form action="{{ route('countries.store') }}" method="POST"  enctype="multipart/form-data">
                         @csrf
                         @include('countries.form')
                         <button type="submit" class="btn btn-lg btn-danger mt-5">Save</button>
