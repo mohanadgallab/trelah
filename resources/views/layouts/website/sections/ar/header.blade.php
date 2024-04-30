@@ -19,7 +19,9 @@
               <li class="dropdown"><a href="#"><span>{{ $country->name}}</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   @foreach ($country->items as $item)
+                  @if ($item->lang == 'ar')
                   <li><a href="{{ route('areas.item' , [$item])}}">{{$item->name}}</a></li>
+                  @endif
                     
                   @endforeach
                   
@@ -35,6 +37,9 @@
       </nav><!-- .navbar -->
 
       <a href="{{ route('web.en')}}" class="get-started-btn scrollto">English</a>
+      <a href="tel:00971555560168" class="get-started-btn scrollto" style="color: white; background:#edd33d">
+        <img width="50" height="20" src="https://img.icons8.com/ios/50/phone--v1.png" alt="phone--v1"/>
+      </a>
 
     </div>
   </header>

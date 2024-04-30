@@ -48,7 +48,7 @@
                 <div class="tab-pane active show" id="team-tab" role="tabpanel">
                     <h4 class="card-title mb-4">Team</h4>
                     <div class="row">
-                         @foreach ($item->details as $details )
+                         @foreach ($item->details as $detail )
                         <div class="col-xl-4 col-md-6" id="team-3">
                             <div class="card">
                                 <div class="card-body">
@@ -60,7 +60,11 @@
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="javascript: void(0);">Edit</a>
+                                                <form class="dropdown-item" action="{{ route('details.delete',[$item ,$detail] )}}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn inline" type="submit">Delete</button>
+                                                </form>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item text-danger leave-team" data-id="3" data-bs-toggle="modal" data-bs-target=".bs-add-leave-team" href="javascript: void(0);">Leave
                                                     Team</a>
@@ -68,8 +72,8 @@
                                         </div><!-- end dropdown -->
                                     </div>
                                     <div>
-                                        <h5 class="mb-1 font-size-17">{{ $details->main_title}}</h5>
-                                        <p class="text-muted  font-size-13 mb-0">{{ $details->paragraph}}</p>
+                                        <h5 class="mb-1 font-size-17">{{ $detail->main_title}}</h5>
+                                        <p class="text-muted  font-size-13 mb-0">{{ $detail->paragraph}}</p>
                                     </div>
                                 </div>
                                 <!-- end card-body -->

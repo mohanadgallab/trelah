@@ -42,6 +42,7 @@ Route::get('/areas/{item}', [HomeController::class, 'areas'] )->name('areas.item
 
 Route::prefix('en')->group(function(){
     Route::get('/', [HomeController::class, 'enHome'])->name('web.en');
+    Route::get('/services/{service}', [HomeController::class, 'enServices'])->name('services.profile');
 });
 Auth::routes();
 
@@ -57,7 +58,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('items', ItemController::class);
     Route::get('items/{item}/details',[ItemController::class, 'createDetails'])->name('details.create');
     Route::post('items/{item}/details/store',[ItemController::class, 'storeDetails'])->name('details.store');
-    Route::delete('items/{item}/details/{details}',[ItemController::class, 'deleteDetails'])->name('details.delete');
+    Route::delete('items/{item}/details/{detail}',[ItemController::class, 'deleteDetails'])->name('details.delete');
     Route::resource('trucks', TruckController::class);
     Route::resource('countries', CountryController::class);
     Route::resource('services', ServiceController::class);

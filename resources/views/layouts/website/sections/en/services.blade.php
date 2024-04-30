@@ -10,7 +10,7 @@
             @foreach ($services as $service)
                 <div class="col-lg-4 col-md-6 col-sm-6 d-flex align-items-stretch mt-4 mt-md-0 mb-2" data-aos="zoom-in"
                     data-aos-delay="200">
-                    <a href="{{ route('services.show', $service)}}">
+                    <a href="{{ route('services.profile', $service)}}">
                         <div class="icon-box">
                             <div class=""><img src="{{ asset('services/'. $service->image_path) }}" alt="{{$service->name}}"
                                     class="img-fluid w-90 h-50"></i></div>

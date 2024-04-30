@@ -10,7 +10,7 @@
                     <div class="box-header">
                         <h3 class="box-title">
                             About
-                            {{-- <a href="{{route('countries.create')}}" class="btn btn-info float-right">Create</a> --}}
+                            <a href="{{route('about.create')}}" class="btn btn-info float-right">Create</a>
                         </h3>
                         
                     </div><!-- /.box-header -->

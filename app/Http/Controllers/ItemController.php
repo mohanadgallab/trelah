@@ -143,8 +143,9 @@ class ItemController extends Controller
 
        
     }
-    public function deleteDetails(Detail $detail){
+    public function deleteDetails(Item $item ,Detail $detail){
+        //dd($detail);
         $detail->delete();
-
+        return back()->with('status','Delete Done to Details');
     }
 }

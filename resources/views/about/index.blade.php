@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    About
-                    <a href="{{ route('about.create')}}" class="btn btn-info float-end">Create</a>
+                
+                    
                 </div>
         
                 <div class="card-body">

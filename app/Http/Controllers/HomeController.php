@@ -49,7 +49,7 @@ class HomeController extends Controller
     // English
     public function enHome(){
         $trucks =Truck::where('lang', 'en')->get() ;
-        $countries = Country::where('lang', 'en')->get();
+        $countries = Country::all();
         $services = Service::where('lang', 'en')->get() ;
         $about = About::where('lang', 'en')->get();
         $hero = Hero::where('lang','en')->get();
@@ -78,15 +78,16 @@ class HomeController extends Controller
     }
 // ###########################################################################################
     // Arabic
-    public function service(Service $service){
+    public function services(Service $service){
         $countries = Country::all();
         return view('layouts.website.pages.ar.service', compact('service', 'countries'));
         
     }
     // English
-    public function enService(Service $service){
+    public function enServices(Service $service){
+        // dd($service);
         $countries = Country::all();
-        return view('layouts.website.pages.ar.service', compact('service', 'countries'));
+        return view('layouts.website.pages.en.service', compact('service', 'countries'));
         
     }
 
